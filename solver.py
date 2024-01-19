@@ -25,7 +25,7 @@ class TestSolver():
 
         iframe = self.driver.find_element(By.CSS_SELECTOR, "iframe[src*='recaptcha']")
 
-        # Switch to the iframe
+    
         self.driver.switch_to.frame(iframe)
 
         checkbox = self.driver.find_element(By.CSS_SELECTOR, ".recaptcha-checkbox-border")
@@ -38,13 +38,13 @@ class TestSolver():
         iframe_locator = (By.CSS_SELECTOR, "iframe[title='recaptcha challenge expires in two minutes']")
         iframe = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(iframe_locator))
 
-        # Switch to the iframe using the element
         self.driver.switch_to.frame(iframe)
         time.sleep(1)
         checkbox = self.driver.find_element(By.ID, "recaptcha-audio-button")
         checkbox.click()
         time.sleep(1)
-        # Assuming you are already inside the reCAPTCHA iframe
+
+        
         audio_link = self.driver.find_element(By.CLASS_NAME, "rc-audiochallenge-tdownload-link")
         audio_link_url = audio_link.get_attribute("href")
         time.sleep(1)
